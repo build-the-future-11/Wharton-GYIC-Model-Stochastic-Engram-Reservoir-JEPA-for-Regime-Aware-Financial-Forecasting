@@ -65,13 +65,29 @@ def latent_features(Xtr, Ytr_context, Xte, seed=7, epochs=12, latent_dim=8):
     A variance penalty is an explicit design choice, not a claim that collapse
     is impossible. Diagnostics are always retained. Targets are fully observed
     at the fold's first forecast origin; there is no test-time adaptation.
+
+    Fitting is CPU-only and uses a scoped CPU generator. It does not reseed
+    accelerator generators or change the caller's intra-op thread setting.
+    The caller's CPU random stream is restored even if fitting raises.
     """
     import torch
-    from torch import nn
     if epochs < 1 or latent_dim < 2:
         raise ValueError('Invalid latent training settings')
-    torch.manual_seed(seed)
-    torch.set_num_threads(2)
+
+    # manual_seed() also reseeds accelerator generators. Only CPU randomness
+    # is needed here. fork_rng restores it on both normal and exceptional exit.
+    # Override a caller's accelerator/default-device context for all module and
+    # tensor construction; leaving the context restores the caller's choice.
+    with torch.random.fork_rng(devices=[]), torch.device('cpu'):
+        generator = torch.Generator(device='cpu').manual_seed(seed)
+        torch.set_rng_state(generator.get_state())
+        return _fit_latent_features(Xtr, Ytr_context, Xte, epochs, latent_dim)
+
+
+def _fit_latent_features(Xtr, Ytr_context, Xte, epochs, latent_dim):
+    """Fit under the caller-established, scoped CPU random stream."""
+    import torch
+    from torch import nn
     encoder = nn.Sequential(nn.Linear(Xtr.shape[1], 24), nn.GELU(), nn.Linear(24, latent_dim))
     target = copy.deepcopy(encoder).requires_grad_(False)
     predictor = nn.Sequential(nn.Linear(latent_dim, 24), nn.GELU(), nn.Linear(24, latent_dim))
