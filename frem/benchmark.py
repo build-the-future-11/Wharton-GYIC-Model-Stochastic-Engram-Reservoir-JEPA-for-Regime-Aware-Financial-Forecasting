@@ -128,11 +128,18 @@ def evaluate(values: np.ndarray, *, context: int = 12, horizon: int = 1,
     w = make_windows(values, context, horizon)
     rows = []
     for fold_index, (train_end, start, stop) in enumerate(expanding_folds(len(values), min_train, test_size, gap)):
-        train = w.target_indices < train_end
+        # A horizon-h forecast for target t is made at time t-h. Training
+        # targets later than that forecast origin are not yet observable,
+        # even if their calendar index precedes the test target boundary.
+        # For the first target in the fold, the last available target is
+        # start-horizon. This embargo avoids multi-step label lookahead.
+        available_train_end = min(train_end, start - horizon + 1)
+        train = w.target_indices < available_train_end
         test = (w.target_indices >= start) & (w.target_indices < stop)
         if not train.any() or not test.any():
             continue
-        if not (w.target_indices[train].max() < start and np.all(w.latest_observed_indices[test] < w.target_indices[test])):
+        if not (w.target_indices[train].max() <= int(w.latest_observed_indices[test].min())
+                and np.all(w.latest_observed_indices[test] < w.target_indices[test])):
             raise AssertionError('train/test timing leak')
         Xtr, ytr, Xte, yte = w.features[train], w.target[train], w.features[test], w.target[test]
         # Fit all learned preprocessing on training contexts only.
@@ -151,7 +158,7 @@ def evaluate(values: np.ndarray, *, context: int = 12, horizon: int = 1,
             'ridge_context': ridge.predict(scaler.transform(Xte)),
             'fourier_reservoir_ridge': engineered_ridge.predict(engineered_scaler.transform(engineered_test)),
         }
-        fold = {'fold': fold_index, 'train_target_end_exclusive': train_end,
+        fold = {'fold': fold_index, 'train_target_end_exclusive': int(available_train_end),
                 'test_target_start': start, 'test_target_end_exclusive': stop,
                 'n_train': int(len(ytr)), 'n_test': int(len(yte)), 'models': {}}
         for name, pred in predictions.items():
