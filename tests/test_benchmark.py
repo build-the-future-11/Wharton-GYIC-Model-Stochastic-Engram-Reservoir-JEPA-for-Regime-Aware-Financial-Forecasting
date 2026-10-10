@@ -72,3 +72,17 @@ def test_too_short_fold_or_bad_alpha_rejected():
         evaluate(np.arange(35.),context=8,min_train=30,test_size=20)
     with pytest.raises(ValueError,match='Ridge alpha'):
         evaluate(np.arange(90.),alpha=0)
+
+
+def test_multihorizon_train_label_embargo_uses_forecast_origin():
+    v = np.sin(np.arange(140)*.2)
+    a = evaluate(v,context=8,horizon=4,min_train=50,test_size=20,reservoir_dim=6)
+    assert a['folds'][0]['train_target_end_exclusive'] == 47
+    # Changing a label at index 48 was never allowed into fold 0's train set,
+    # but may legitimately affect that fold's rolling test forecasts after
+    # the observation becomes available. Earlier fold windows are unchanged.
+    modified = v.copy()
+    modified[47:] = 1000.0
+    b = evaluate(modified,context=8,horizon=4,min_train=50,test_size=20,reservoir_dim=6)
+    # No requirement to preserve metrics: the changed value is in test period.
+    assert b['folds'][0]['train_target_end_exclusive'] == 47
