@@ -1,0 +1,267 @@
+FFFFFFFFF......F                                                         [100%]
+=================================== FAILURES ===================================
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide0')
+source = 'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide1')
+source = 'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note,note\n2026-01-01,1,a,b\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide2')
+source = 'timestamp,value,note,note\n2026-01-01,1,a,b\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,\n2026-01-01,1,a\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide3')
+source = 'timestamp,value,\n2026-01-01,1,a\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,   \n2026-01-01,1,a\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide4')
+source = 'timestamp,value,   \n2026-01-01,1,a\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide5')
+source = 'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide6')
+source = 'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1,"unterminated\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide7')
+source = 'timestamp,value,note\n2026-01-01,1,"unterminated\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+_ test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1,"quoted"junk\n] _
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-15/test_malformed_csv_cannot_hide8')
+source = 'timestamp,value,note\n2026-01-01,1,"quoted"junk\n'
+
+    @pytest.mark.parametrize('source', [
+        'timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n',
+        'timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n',
+        'timestamp,value,note,note\n2026-01-01,1,a,b\n',
+        'timestamp,value,\n2026-01-01,1,a\n',
+        'timestamp,value,   \n2026-01-01,1,a\n',
+        'timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n',
+        'timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n',
+        'timestamp,value,note\n2026-01-01,1,"unterminated\n',
+        'timestamp,value,note\n2026-01-01,1,"quoted"junk\n',
+    ])
+    def test_malformed_csv_cannot_hide_or_discard_evidence(tmp_path, source):
+        path = tmp_path / 'input.csv'
+        path.write_text(source, encoding='utf-8')
+>       with pytest.raises(ValueError):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE ValueError
+
+../frem_github/tests/test_csv_admission.py:24: Failed
+___________ test_oversized_input_is_rejected_after_one_bounded_read ____________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f3daff81280>
+
+    def test_oversized_input_is_rejected_after_one_bounded_read(monkeypatch):
+        class BoundedFile:
+            def __enter__(self):
+                return self
+            def __exit__(self, *args):
+                return False
+            def read(self, size):
+                assert size == 129
+                return b'x' * size
+        monkeypatch.setattr(benchmark, '_MAX_CSV_BYTES', 128, raising=False)
+        monkeypatch.setattr(benchmark.Path, 'open', lambda self, *a, **kw: BoundedFile())
+        with pytest.raises(ValueError, match='bounded'):
+>           benchmark.read_csv('bounded.csv', 'timestamp', 'value')
+
+../frem_github/tests/test_csv_admission.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+frem_baseline/frem/benchmark.py:59: in read_csv
+    raw = path.read_bytes()
+          ^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('bounded.csv')
+
+    def read_bytes(self):
+        """
+        Open the file in bytes mode, read it, and close the file.
+        """
+        with self.open(mode='rb') as f:
+>           return f.read()
+                   ^^^^^^^^
+E           TypeError: test_oversized_input_is_rejected_after_one_bounded_read.<locals>.BoundedFile.read() missing 1 required positional argument: 'size'
+
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py:1020: TypeError
+=========================== short test summary info ============================
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,value\n2026-01-01,nan,1\n2026-01-02,inf,2\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,timestamp,value\n2099-01-01,2026-01-01,1\n1900-01-01,2026-01-02,2\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note,note\n2026-01-01,1,a,b\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,\n2026-01-01,1,a\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,   \n2026-01-01,1,a\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value\n2026-01-01,1,discarded\n2026-01-02,2,discarded\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1\n2026-01-02,2,complete\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1,"unterminated\n]
+FAILED ../../../../dev::test_malformed_csv_cannot_hide_or_discard_evidence[timestamp,value,note\n2026-01-01,1,"quoted"junk\n]
+FAILED ../../../../dev::test_oversized_input_is_rejected_after_one_bounded_read
+10 failed, 6 passed in 23.04s

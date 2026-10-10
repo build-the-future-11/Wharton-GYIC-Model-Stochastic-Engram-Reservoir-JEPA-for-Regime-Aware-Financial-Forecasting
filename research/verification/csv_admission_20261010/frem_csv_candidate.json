@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "command": [
+    "/tmp/frem-tests-4077256a2a6b/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "-c",
+    "/dev/null",
+    "--import-mode=importlib",
+    "/workspace/scratch/4077256a2a6b/frem_github/tests/test_csv_admission.py"
+  ],
+  "source": "/workspace/scratch/4077256a2a6b/frem_github",
+  "wall_seconds": 21.799637323998468,
+  "summary": "16 passed in 15.39s"
+}

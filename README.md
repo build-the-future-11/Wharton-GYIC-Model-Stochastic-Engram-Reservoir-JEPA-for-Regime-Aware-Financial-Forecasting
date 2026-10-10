@@ -20,7 +20,7 @@ example below bundles real market data.
 
 ```bash
 python -m pip install -e ".[dev]"
-python -m pytest -q tests/test_benchmark.py
+python -m pytest -q tests
 ```
 
 ### Run an exploratory comparison on your own licensed series
@@ -38,6 +38,19 @@ python -m frem.benchmark \
 The tool keeps all chronological folds and writes an immutable new JSON output
 (refusing accidental overwrite). The output is explicitly tagged
 `EXPLORATORY_BASELINE_ONLY_NOT_JEPA_OR_ALPHA`.
+
+CSV admission checks the complete header and every populated record, including
+optional columns. Duplicate or blank headers, missing/extra cells, malformed
+quoting, and nonfinite targets are rejected before any fit. UTF-8 BOMs, quoted
+multiline fields and blank separator lines remain valid. Input reading is
+bounded to 128 MiB plus one overflow-detection byte; the digest covers the exact
+accepted raw bytes. This establishes file consistency, not data rights or
+point-in-time market provenance.
+
+`RESEARCH_STATE.json` records the current engineering scope and retained
+verification. The complete test command includes the component-audit and CSV
+admission suites. The two optional prototype tests skip when PyTorch is absent;
+that skip does not establish prototype runtime compatibility.
 
 **Interpretation:** models can use previously observed test-period inputs for
 later rolling-origin predictions, but no future observations. For horizons

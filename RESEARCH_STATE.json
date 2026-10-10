@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "project": "FREM exploratory baseline and component audit",
+  "repository": "build-the-future-11/Wharton-GYIC-Model-Stochastic-Engram-Reservoir-JEPA-for-Regime-Aware-Financial-Forecasting",
+  "phase": "BASELINE_SOFTWARE_VERIFIED",
+  "scientific_status": "NOT_EVALUATED",
+  "scope": "Chronological baseline controls and an optional unvalidated JEPA-style development prototype. This repository is distinct from the full private FREM Runtime Verified package.",
+  "protocol": "research/PROTOCOL_DRAFT_20261010.md",
+  "protocol_status": "PROPOSED_NOT_FROZEN",
+  "protected_evaluation_accessed_this_continuation": false,
+  "history": [
+    {
+      "source_pr": 1,
+      "source_head": "5f1f053dc0edca7d165c72d72a226c4b30e43282",
+      "scope": "Chronological baselines; forecast-origin training-label embargo; fixed Fourier/reservoir/sign-bigram readout"
+    },
+    {
+      "source_pr": 2,
+      "source_head": "08a59846d81c249f3560235382d5e8c69065e339",
+      "scope": "Component ablations and optional JEPA-style development prototype; inherited source and history retained"
+    },
+    {
+      "date": "2026-10-10",
+      "scope": "Reject ambiguous or malformed CSV before fitting; bound raw input reading; run all configured test modules in CI",
+      "verification": "research/verification/csv_admission_20261010/verification.json"
+    }
+  ],
+  "verification": {
+    "at_utc": "2026-10-10T17:26:36.332601+00:00",
+    "source_parent": "08a59846d81c249f3560235382d5e8c69065e339",
+    "scope": "CSV file admission and configured software-test coverage",
+    "source_sha256": {
+      "frem/benchmark.py": "5bc7c95d02937e81e8b5a4197141e0531d3cdbb267f0f763c49f313e090d0d65",
+      "tests/test_csv_admission.py": "7c601ca3d4b0bed7babb378ab075f130bee0fb69bbc3e783a643710149a77751",
+      ".github/workflows/research-baselines.yml": "b659a43151fe21ac07e84f98a25093b556176a8fdb5115624007f4ad6d7031f5"
+    },
+    "baseline": {
+      "failed": 10,
+      "passed": 6
+    },
+    "candidate_new_tests": {
+      "passed": 16
+    },
+    "candidate_full_suite": {
+      "passed": 33,
+      "skipped": 2,
+      "skip_reason": "optional PyTorch dependency unavailable"
+    },
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "data_acquired": false,
+    "protected_evaluation": false,
+    "scientific_result": false,
+    "independent_source_review": "No blocking defect; optional additional encoding and blank-line fixtures suggested, not required for the reproduced defects."
+  },
+  "remaining_requirements": [
+    "Named investigator and independent reviewer",
+    "Licensed point-in-time dataset with immutable identity, target semantics and availability",
+    "Matched controls and declared compute budget",
+    "Prospective primary endpoint, effect threshold, uncertainty and failure handling",
+    "Reviewed frozen protocol before any protected evaluation",
+    "Runtime certification for the optional PyTorch prototype in a compatible environment"
+  ],
+  "claims": {
+    "market_alpha": "unsupported",
+    "canonical_trained_FREM": "not implemented in this repository",
+    "novelty": "not established",
+    "scientific_completion": "not established"
+  }
+}

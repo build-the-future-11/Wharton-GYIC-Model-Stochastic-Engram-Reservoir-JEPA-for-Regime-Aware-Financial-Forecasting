@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import io
 import json
 from dataclasses import dataclass
 from datetime import datetime
@@ -17,6 +18,8 @@ from pathlib import Path
 import numpy as np
 from sklearn.linear_model import Ridge
 from sklearn.preprocessing import StandardScaler
+
+_MAX_CSV_BYTES = 128 * 1024 * 1024
 
 
 @dataclass(frozen=True)
@@ -56,23 +59,47 @@ def expanding_folds(n: int, min_train: int, test_size: int, gap: int = 0):
 
 def read_csv(path: str | Path, timestamp_col: str, value_col: str) -> tuple[np.ndarray, str]:
     path = Path(path)
-    raw = path.read_bytes()
-    if len(raw) > 128 * 1024 * 1024:
+    # Bound the read itself, not just a fully buffered file. Hash this exact
+    # accepted snapshot so parsing and provenance always refer to the same bytes.
+    with path.open('rb') as stream:
+        raw = stream.read(_MAX_CSV_BYTES + 1)
+    if len(raw) > _MAX_CSV_BYTES:
         raise ValueError('CSV exceeds bounded 128 MiB input')
-    rows = list(csv.DictReader(raw.decode('utf-8-sig').splitlines()))
-    if not rows:
-        raise ValueError('empty CSV')
+    if (not isinstance(timestamp_col, str) or not timestamp_col.strip()
+            or not isinstance(value_col, str) or not value_col.strip()
+            or timestamp_col == value_col):
+        raise ValueError('timestamp and target columns must be distinct nonblank names')
     values, stamps = [], []
-    for row in rows:
-        try:
-            time = datetime.fromisoformat(row[timestamp_col].strip().replace('Z', '+00:00'))
-            value = float(row[value_col])
-        except (KeyError, TypeError, ValueError) as exc:
-            raise ValueError('missing/malformed timestamp or target') from exc
-        if not np.isfinite(value):
-            raise ValueError('target contains nonfinite values')
-        stamps.append(time)
-        values.append(value)
+    try:
+        reader = csv.reader(io.StringIO(raw.decode('utf-8-sig'), newline=''), strict=True)
+        header = next(reader, None)
+        if not header:
+            raise ValueError('empty CSV')
+        if any(not name.strip() for name in header) or len(header) != len(set(header)):
+            raise ValueError('CSV headers must be unique and nonblank')
+        if timestamp_col not in header or value_col not in header:
+            raise ValueError('missing timestamp or target column')
+        timestamp_index, value_index = header.index(timestamp_col), header.index(value_col)
+        for row in reader:
+            # CSV permits blank separator lines. Other missing/extra cells are
+            # malformed records, including cells in unused optional columns.
+            if not row:
+                continue
+            if len(row) != len(header):
+                raise ValueError(f'CSV row ending at line {reader.line_num} has inconsistent width')
+            try:
+                time = datetime.fromisoformat(row[timestamp_index].strip().replace('Z', '+00:00'))
+                value = float(row[value_index])
+            except (TypeError, ValueError) as exc:
+                raise ValueError('missing/malformed timestamp or target') from exc
+            if not np.isfinite(value):
+                raise ValueError('target contains nonfinite values')
+            stamps.append(time)
+            values.append(value)
+    except (csv.Error, UnicodeDecodeError) as exc:
+        raise ValueError('malformed UTF-8 CSV') from exc
+    if not values:
+        raise ValueError('empty CSV')
     try:
         ascending = all(a < b for a, b in zip(stamps, stamps[1:]))
     except TypeError as exc:

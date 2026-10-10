@@ -1,0 +1,27 @@
+{
+  "at_utc": "2026-10-10T17:26:36.332601+00:00",
+  "source_parent": "08a59846d81c249f3560235382d5e8c69065e339",
+  "scope": "CSV file admission and configured software-test coverage",
+  "source_sha256": {
+    "frem/benchmark.py": "5bc7c95d02937e81e8b5a4197141e0531d3cdbb267f0f763c49f313e090d0d65",
+    "tests/test_csv_admission.py": "7c601ca3d4b0bed7babb378ab075f130bee0fb69bbc3e783a643710149a77751",
+    ".github/workflows/research-baselines.yml": "b659a43151fe21ac07e84f98a25093b556176a8fdb5115624007f4ad6d7031f5"
+  },
+  "baseline": {
+    "failed": 10,
+    "passed": 6
+  },
+  "candidate_new_tests": {
+    "passed": 16
+  },
+  "candidate_full_suite": {
+    "passed": 33,
+    "skipped": 2,
+    "skip_reason": "optional PyTorch dependency unavailable"
+  },
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "data_acquired": false,
+  "protected_evaluation": false,
+  "scientific_result": false,
+  "independent_source_review": "No blocking defect; optional additional encoding and blank-line fixtures suggested, not required for the reproduced defects."
+}
