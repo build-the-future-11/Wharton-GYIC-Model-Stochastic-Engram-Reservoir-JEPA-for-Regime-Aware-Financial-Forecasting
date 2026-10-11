@@ -1,0 +1,151 @@
+{
+  "at_utc": "2026-10-11T14:51:25.004208+00:00",
+  "scope": "Documentation-only ACT-042 design; no empirical protocol freeze or model/outcome/benchmark execution",
+  "repository": "build-the-future-11/Wharton-GYIC-Model-Stochastic-Engram-Reservoir-JEPA-for-Regime-Aware-Financial-Forecasting",
+  "source_parent": "52cb26d582d2529af85a1fb7ce00ab1b89d47b03",
+  "source_tree": "f6d2545f4b42cb3269542f2577cc546c42b3eb52",
+  "source_pr": 4,
+  "modified_existing_paths": [
+    "README.md",
+    "RESEARCH_STATE.json",
+    "research/PROTOCOL_DRAFT_20261010.md"
+  ],
+  "new_substantive_paths": [
+    "research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+    "research/verification/economic_spec_20261011/arithmetic.json"
+  ],
+  "sha256": {
+    "README.md": "122b2d1d3bbb5e069dee8ce8382bc3fbf9045be9e1bcaf642fe963177a8ee8f3",
+    "RESEARCH_STATE.json": "d334884bd914b2d3000216f9e48f5f642f5b5f84278238eb732a67b4d49ccd78",
+    "research/PROTOCOL_DRAFT_20261010.md": "261079378278f86101904da40ba835b6a529b4d01c2269d43aef87687664ed66",
+    "research/ECONOMIC_SPEC_PROPOSED_20261011.md": "0477694f48156dfb3a67e9a3c1a53b2a4ea9b3a35c5d49b7b830d30baa439f99",
+    "research/verification/economic_spec_20261011/arithmetic.json": "e1b720e7ebd2899b1b78d5b6775d0620776b86f3c8ea1c46e47b8e8f8412cfee"
+  },
+  "original_leaf_count": 25,
+  "unchanged_original_leaves_and_modes": 22,
+  "unchanged_original_entries": {
+    ".github/workflows/research-baselines.yml": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1d2d6d4cacbef22c82f7166440ad4f347447e1d"
+    },
+    "LICENSE": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dcfeeb6b48cae18729b1585f4f70a5f0e834d1c4"
+    },
+    "frem/__init__.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4a96c02b03c9acd11fbe9d7d42ff7c675fd1ab81"
+    },
+    "frem/benchmark.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f4b8a73759fb61509b0d9556c618ec07d416140"
+    },
+    "frem/component_audit.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b660c53a5dd1ca3fe481baa468430bf6f1884694"
+    },
+    "pyproject.toml": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "516df7667908a99bdd50ff9fdf7a2b1819ad7960"
+    },
+    "research/COMPONENT_RNG_ISOLATION_20261010.md": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b2ac305771d875468354ed015223b80979c8e042"
+    },
+    "research/INTEGRATION_REVIEW_20261011.md": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "9457e7224cbf4121d47373ed471ea86c50822c45"
+    },
+    "research/verification/csv_admission_20261010/frem_all_candidate.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6ca5fe3f66c8da0fc334967140c47ef90776322c"
+    },
+    "research/verification/csv_admission_20261010/frem_all_candidate.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "12b0386e4dbf287f40a7240623dad56a993e5be1"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_baseline.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "917555ad4eaee044b8a1bcdf9cd56b59fd503daa"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_baseline.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "017a5e507c5921baed649eb2559294825f16c50e"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_candidate.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8cb7a25bdf4621f44f9b92f6188808b358729122"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_candidate.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5e5ac78051c9f1e7f6737a081fc83d86ad44b288"
+    },
+    "research/verification/csv_admission_20261010/verification.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3b73d0a678fe6e1fcb56edc5f5ae294184096849"
+    },
+    "research/verification/integration_20261011/pytest_cpu.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1035e1b3249a6dde2ece466be520f56c1f8ceaf6"
+    },
+    "research/verification/integration_20261011/pytest_without_torch.log": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a3059516cf83b4baa43879d29b713c28a5fbff13"
+    },
+    "research/verification/integration_20261011/verification.json": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "900c7b51ed4913ac06a54b2174c298b490b229e6"
+    },
+    "tests/test_benchmark.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "740d4a66c432af46a8fdf55da970462611f754f2"
+    },
+    "tests/test_component_audit.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ab0398af13a516dae021a8335e41d46cfb2829a8"
+    },
+    "tests/test_component_rng_isolation.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f676624ab4ca9194ddb5159a316747e70c5a7ad2"
+    },
+    "tests/test_csv_admission.py": {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e7250589c2fd797ff5965cebcba2877fb3929951"
+    }
+  },
+  "canonical_predecessor_fields_retained": true,
+  "canonical_history_retained_with_one_append": true,
+  "protocol_status": "PROPOSED_NOT_FROZEN",
+  "scientific_status": "NOT_EVALUATED",
+  "protected_access": false,
+  "training_or_models_run": false,
+  "market_data_or_outcomes_read": false,
+  "portfolio_implementation_added": false,
+  "test_suite_run": false,
+  "arithmetic_checks_passed": 15,
+  "whitespace_check": "git diff --cached --check passed",
+  "review": "Parallel assistant review of accounting, timing, risk contrasts and analytic examples; clarified distinct cash/carry-forward controls, zero impact for no trades, nonnegative costs, separately timed nontrading fees, and source for general-distribution CVaR. This is not scientific or investor approval.",
+  "receipt_hash_scope": "This receipt excludes itself to avoid a self-referential digest; the published Git tree binds the complete addition."
+}

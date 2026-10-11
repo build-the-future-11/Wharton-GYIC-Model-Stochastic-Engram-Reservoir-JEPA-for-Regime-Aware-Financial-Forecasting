@@ -6,7 +6,9 @@ Stochastic Engram Reservoir JEPA learns market states with JEPA, tracks dynamics
 
 The original JEPA + reservoir + episodic-memory + stochastic + XGBoost
 architecture above is a **research proposal**. The repository now contains a
-**pre-outcome control suite**, not a trained JEPA or evidence of market alpha.
+**pre-outcome control suite** and an optional, unvalidated JEPA-style development
+prototype. It does not contain a canonical trained FREM model or evidence of
+market alpha.
 
 The following are implemented and tested: strict chronological CSV ingestion,
 a forecast-origin-aware horizon embargo, expanding train/test origins, a
@@ -56,9 +58,15 @@ that skip does not establish prototype runtime compatibility.
 later rolling-origin predictions, but no future observations. For horizons
 greater than one, training labels unavailable at the *first* forecast origin
 are embargoed. There are no transaction costs, portfolio returns, independently
-protected evaluation, market-data licenses, model-compute matching, trained
-JEPA, or claims of statistical/economic superiority yet.
+protected evaluation, market-data licenses, model-compute matching, a canonical
+trained FREM model, or claims of statistical/economic superiority yet.
 
 See [the prospectively specified research contract](research/PROTOCOL_DRAFT_20261010.md)
 for the reviewer, dataset, falsification, and held-out gates that must precede
 scientific result-bearing work.
+
+The [proposed economic objective and risk ablations](research/ECONOMIC_SPEC_PROPOSED_20261011.md)
+specify return/cost accounting, separate downside-risk comparisons, conventional
+and component controls, and position-sizing decisions for review. This is
+`PROPOSED_NOT_FROZEN / NOT_EVALUATED`; investor constraints, costs, data access and
+freeze authority remain unresolved. It adds no portfolio implementation.

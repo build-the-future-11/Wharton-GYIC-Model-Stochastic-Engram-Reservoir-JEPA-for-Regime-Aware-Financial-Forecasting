@@ -33,6 +33,15 @@
       },
       "verification": "research/verification/integration_20261011/verification.json",
       "scientific_status_unchanged": "NOT_EVALUATED"
+    },
+    {
+      "date": "2026-10-11",
+      "scope": "Documentation-only proposed economic objective, separate downside-risk and component ablations, costs and position sizing; clarify optional JEPA-style prototype scope",
+      "source_parent": "52cb26d582d2529af85a1fb7ce00ab1b89d47b03",
+      "design": "research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+      "protocol_status_unchanged": "PROPOSED_NOT_FROZEN",
+      "scientific_status_unchanged": "NOT_EVALUATED",
+      "verification": "research/verification/economic_spec_20261011/documentation_receipt.json"
     }
   ],
   "verification": {
@@ -82,5 +91,19 @@
     "skipped": 0,
     "scope": "Artificial software fixtures only; full private FREM package and financial protocol unchanged",
     "hosted_status": "Consult exact published commit workflow; source-local receipt does not certify hosted completion"
+  },
+  "economic_design": {
+    "document": "research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+    "status": "PROPOSED_NOT_FROZEN",
+    "scientific_status": "NOT_EVALUATED",
+    "scope": "Reviewable design only; no portfolio implementation, data acquisition, model execution or outcomes",
+    "unresolved": [
+      "Named owner, independent reviewer and empirical freeze authority",
+      "Verified investor mandate, applicable case edition and feasible-set constraints",
+      "Licensed point-in-time data and protected-access authority",
+      "Costs, execution clock, liquidity, rounding and funding rules",
+      "Primary contrasts, risk thresholds, margins, compute budget and uncertainty/failure rules"
+    ],
+    "checks": "Deterministic arithmetic examples and documentation preservation only; existing engineering verification is retained historical evidence"
   }
 }

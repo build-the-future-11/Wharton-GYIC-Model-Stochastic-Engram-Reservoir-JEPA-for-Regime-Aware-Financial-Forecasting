@@ -1,12 +1,16 @@
 # FREM prospective benchmark — pre-outcome draft
 
-**Status:** PRE-OUTCOME / NOT FROZEN / BASELINE IMPLEMENTATION ONLY.
+**Status:** PRE-OUTCOME / NOT FROZEN / BASELINE SOFTWARE AND OPTIONAL DEVELOPMENT PROTOTYPE ONLY.
 
 Hypothesis to test (not yet authorized): a versioned JEPA-plus-reservoir-plus-event-memory mechanism improves a declared primary prediction endpoint over strong chronological and matched-budget controls on a licensed point-in-time financial dataset. All enhancements must be evaluated against a baseline and a genuinely incremental ablation, not only a historical mean.
 
 ## What is implemented now
 
-The code provides a bounded, data-agnostic, expanding-origin *exploratory* control suite: historical train mean, lag persistence, train-only standardized ridge, and a fixed random reservoir + Fourier-magnitude + sign-bigram context-feature ridge readout. It does **not** implement or train JEPA, episodic engram memory, stochastic prediction heads, XGBoost, or a tradeable backtest. Do not mislabel this as a combined FREM model or a proven result.
+`frem.benchmark` provides a bounded, data-agnostic, expanding-origin *exploratory* control suite: historical train mean, lag persistence, train-only standardized ridge, and a fixed random reservoir + Fourier-magnitude + sign-bigram context-feature ridge readout. That baseline runner does **not** implement or train JEPA, episodic engram memory, stochastic prediction heads, XGBoost, or a tradeable backtest.
+
+Separately, `frem.component_audit` includes an optional, unvalidated JEPA-style development prototype and component controls. Its artificial software verification does not establish a canonical trained FREM model, episodic engram retrieval or market efficacy. The previous repository-wide statement that JEPA was not implemented was too broad; the baseline-only scope above is the intended distinction. Do not mislabel either development component as a combined FREM model or a proven result.
+
+The [economic objective and risk-ablation proposal](ECONOMIC_SPEC_PROPOSED_20261011.md) adds a reviewable reward, cost and position-sizing design. It remains **PROPOSED_NOT_FROZEN / NOT_EVALUATED** and does not settle the prerequisites below or change this runner's targets, controls or rolling-origin behavior.
 
 ## Hard prerequisites before science
 

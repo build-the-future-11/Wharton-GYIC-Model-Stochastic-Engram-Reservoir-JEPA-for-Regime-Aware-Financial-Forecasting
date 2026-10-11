@@ -1,0 +1,105 @@
+{
+  "at_utc": "2026-10-11T14:49:41.249338+00:00",
+  "source_parent": "52cb26d582d2529af85a1fb7ce00ab1b89d47b03",
+  "document": "research/ECONOMIC_SPEC_PROPOSED_20261011.md",
+  "scope": "Constructed analytic arithmetic only; stdlib Decimal; no portfolio, market data, models, sampling or outcome access",
+  "method": "Direct decimal arithmetic from document Section 6. For the four-point tail-loss illustration, evaluate the convex piecewise-linear variational objective at its distinct loss breakpoints.",
+  "python": "3.12.14",
+  "checks_passed": 15,
+  "checks": [
+    {
+      "check": "entry_turnover",
+      "observed": "0.1",
+      "expected": "0.1",
+      "passed": true
+    },
+    {
+      "check": "entry_cost_fraction",
+      "observed": "0.0001",
+      "expected": "0.0001",
+      "passed": true
+    },
+    {
+      "check": "entry_cost_currency",
+      "observed": "0.1000",
+      "expected": "0.10",
+      "passed": true
+    },
+    {
+      "check": "entry_cash_fraction",
+      "observed": "0.4999",
+      "expected": "0.4999",
+      "passed": true
+    },
+    {
+      "check": "entry_net_return",
+      "observed": "0.0099",
+      "expected": "0.0099",
+      "passed": true
+    },
+    {
+      "check": "entry_ending_wealth",
+      "observed": "1009.9000",
+      "expected": "1009.90",
+      "passed": true
+    },
+    {
+      "check": "two_leg_gross_turnover",
+      "observed": "0.2",
+      "expected": "0.2",
+      "passed": true
+    },
+    {
+      "check": "two_leg_cost_fraction",
+      "observed": "0.0002",
+      "expected": "0.0002",
+      "passed": true
+    },
+    {
+      "check": "unfunded_fully_invested_cash",
+      "observed": "-0.0002",
+      "expected": "-0.0002",
+      "passed": true
+    },
+    {
+      "check": "half_full_spread_cost",
+      "observed": "0.0001",
+      "expected": "0.0001",
+      "passed": true
+    },
+    {
+      "check": "base_currency_return",
+      "observed": "0.0302",
+      "expected": "0.0302",
+      "passed": true
+    },
+    {
+      "check": "illustrative_mean_loss",
+      "observed": "0.01",
+      "expected": "0.01",
+      "passed": true
+    },
+    {
+      "check": "illustrative_variational_tail_loss",
+      "observed": "0.04",
+      "expected": "0.04",
+      "passed": true
+    },
+    {
+      "check": "risk_penalty_sign_initial",
+      "observed": "-0.010",
+      "expected": "-0.01",
+      "passed": true
+    },
+    {
+      "check": "risk_penalty_sign_lower_tail",
+      "observed": "0.000",
+      "expected": "0",
+      "passed": true
+    }
+  ],
+  "scientific_status": "NOT_EVALUATED",
+  "protocol_status": "PROPOSED_NOT_FROZEN",
+  "test_suite_run": false,
+  "parameters_adopted": false
+}
