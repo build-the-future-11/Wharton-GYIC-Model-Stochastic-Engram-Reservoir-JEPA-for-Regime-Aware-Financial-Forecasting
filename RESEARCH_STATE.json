@@ -23,6 +23,16 @@
       "date": "2026-10-10",
       "scope": "Reject ambiguous or malformed CSV before fitting; bound raw input reading; run all configured test modules in CI",
       "verification": "research/verification/csv_admission_20261010/verification.json"
+    },
+    {
+      "date": "2026-10-11",
+      "scope": "Integrate existing PR3 random-state isolation and explicit CPU prototype verification with PR4 strict CSV admission; preserve both histories",
+      "source_parents": {
+        "pr3": "9e4c9db87c1cc11b135d096e27fa23fdfe8610bc",
+        "pr4": "efecfd53ce3e127468ef5fa212929bdd8eb33a87"
+      },
+      "verification": "research/verification/integration_20261011/verification.json",
+      "scientific_status_unchanged": "NOT_EVALUATED"
     }
   ],
   "verification": {
@@ -58,12 +68,19 @@
     "Matched controls and declared compute budget",
     "Prospective primary endpoint, effect threshold, uncertainty and failure handling",
     "Reviewed frozen protocol before any protected evaluation",
-    "Runtime certification for the optional PyTorch prototype in a compatible environment"
+    "Maintainer review/adoption and source-matched hosted CI; optional CPU prototype passed local fixtures without establishing scientific efficacy"
   ],
   "claims": {
     "market_alpha": "unsupported",
     "canonical_trained_FREM": "not implemented in this repository",
     "novelty": "not established",
     "scientific_completion": "not established"
+  },
+  "latest_engineering_verification": {
+    "source": "research/verification/integration_20261011/verification.json",
+    "passed": 40,
+    "skipped": 0,
+    "scope": "Artificial software fixtures only; full private FREM package and financial protocol unchanged",
+    "hosted_status": "Consult exact published commit workflow; source-local receipt does not certify hosted completion"
   }
 }

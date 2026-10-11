@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "scope": "Combined existing PR3 CPU RNG-isolation and PR4 CSV-admission engineering; no new model or financial study",
+  "verified_at_utc": "2026-10-11T07:15:06.252326+00:00",
+  "parents": {
+    "pr3": "9e4c9db87c1cc11b135d096e27fa23fdfe8610bc",
+    "pr4": "efecfd53ce3e127468ef5fa212929bdd8eb33a87"
+  },
+  "parent_union_preservation": {
+    "union_files": 21,
+    "all_files_match_one_parent_before_additive_record": true,
+    "model_runtime_equations_modified": false,
+    "workflow_matches_pr3": true
+  },
+  "without_optional_torch": {
+    "passed": 33,
+    "skipped": 3,
+    "seconds": 1.43,
+    "reason": "Two optional test cases and one optional module skipped before Torch was installed"
+  },
+  "with_cpu_torch": {
+    "passed": 40,
+    "skipped": 0,
+    "failed": 0,
+    "seconds": 3.29,
+    "python": "3.12.14",
+    "torch": "2.14.1+cpu",
+    "command": "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 python -m pytest -q tests"
+  },
+  "source_sha256": {
+    "frem/benchmark.py": "5bc7c95d02937e81e8b5a4197141e0531d3cdbb267f0f763c49f313e090d0d65",
+    "frem/component_audit.py": "2cc2b14140cde219184729e44b4735bff4226ea94f6d42145eae1e3360001c00",
+    ".github/workflows/research-baselines.yml": "68d85a6c86acbee7d3c894bc422d96ff99a00e807456a88384ce276c5edb8c6a",
+    "tests/test_benchmark.py": "31d33b228cb97ae47e654416e86608c005d0784548a7ee93116927210296f719",
+    "tests/test_component_audit.py": "801dfe90fdb9431bbce62b5481cd5b2d01edc5e351f304d61a0cdebc7730af42",
+    "tests/test_component_rng_isolation.py": "a33c912e1a95e4e52b5024457e46cf44dce38ab525627b355cd3fbb79235611a",
+    "tests/test_csv_admission.py": "7c601ca3d4b0bed7babb378ab075f130bee0fb69bbc3e783a643710149a77751"
+  },
+  "new_scientific_result": false,
+  "market_data_read": false,
+  "protected_evaluation_opened": false,
+  "private_FREM_package_changed": false,
+  "hosted_checks": "Pending at local receipt creation",
+  "independent_source_review": {
+    "reviewer": "separate research agent",
+    "disposition": "No blocking integration issue found",
+    "verified_parent_blob_bindings": [
+      "component_audit.py and component tests/workflow exactly match PR3",
+      "benchmark.py and CSV admission tests exactly match PR4"
+    ],
+    "new_test_rerun": false
+  },
+  "retained_failure_log_whitespace": {
+    "historical_file": "research/verification/csv_admission_20261010/frem_csv_baseline.log",
+    "lines": [
+      237,
+      238,
+      242
+    ],
+    "disposition": "Inherited raw baseline failure bytes retained unchanged; scoped new-change whitespace check passes"
+  }
+}
