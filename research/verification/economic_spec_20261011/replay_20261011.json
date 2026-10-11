@@ -1,0 +1,289 @@
+{
+  "at_utc": "2026-10-11T15:31:57.787738+00:00",
+  "scope": "Retained executable replay of existing constructed analytic checks only; no portfolio implementation, models, market data or outcome access",
+  "source_parent": "5646df06babf07f0692a49fd9c6b30413742d199",
+  "source_parent_tree": "d76a6eef5e9e923ec95a62a32b92c363e521670e",
+  "command": "python research/verification/economic_spec_20261011/check_arithmetic.py",
+  "python": "3.12.14",
+  "exit_code": 0,
+  "arithmetic_replay": {
+    "at_utc": "2026-10-11T15:31:57.564528+00:00",
+    "scope": "Constructed Section 6 arithmetic only; no market data, portfolio, models or outcomes",
+    "python": "3.12.14",
+    "checker_sha256": "a51e910716b3bf6c2a269ca52c606a97fb1b463adf4fcfc744e345b86c50a295",
+    "reference_sha256": "e1b720e7ebd2899b1b78d5b6775d0620776b86f3c8ea1c46e47b8e8f8412cfee",
+    "checks_passed": 15,
+    "checks_failed": 0,
+    "checks": [
+      {
+        "check": "entry_turnover",
+        "observed": "0.1",
+        "expected": "0.1",
+        "recorded_observed": "0.1",
+        "passed": true
+      },
+      {
+        "check": "entry_cost_fraction",
+        "observed": "0.0001",
+        "expected": "0.0001",
+        "recorded_observed": "0.0001",
+        "passed": true
+      },
+      {
+        "check": "entry_cost_currency",
+        "observed": "0.1000",
+        "expected": "0.10",
+        "recorded_observed": "0.1000",
+        "passed": true
+      },
+      {
+        "check": "entry_cash_fraction",
+        "observed": "0.4999",
+        "expected": "0.4999",
+        "recorded_observed": "0.4999",
+        "passed": true
+      },
+      {
+        "check": "entry_net_return",
+        "observed": "0.0099",
+        "expected": "0.0099",
+        "recorded_observed": "0.0099",
+        "passed": true
+      },
+      {
+        "check": "entry_ending_wealth",
+        "observed": "1009.9000",
+        "expected": "1009.90",
+        "recorded_observed": "1009.9000",
+        "passed": true
+      },
+      {
+        "check": "two_leg_gross_turnover",
+        "observed": "0.2",
+        "expected": "0.2",
+        "recorded_observed": "0.2",
+        "passed": true
+      },
+      {
+        "check": "two_leg_cost_fraction",
+        "observed": "0.0002",
+        "expected": "0.0002",
+        "recorded_observed": "0.0002",
+        "passed": true
+      },
+      {
+        "check": "unfunded_fully_invested_cash",
+        "observed": "-0.0002",
+        "expected": "-0.0002",
+        "recorded_observed": "-0.0002",
+        "passed": true
+      },
+      {
+        "check": "half_full_spread_cost",
+        "observed": "0.0001",
+        "expected": "0.0001",
+        "recorded_observed": "0.0001",
+        "passed": true
+      },
+      {
+        "check": "base_currency_return",
+        "observed": "0.0302",
+        "expected": "0.0302",
+        "recorded_observed": "0.0302",
+        "passed": true
+      },
+      {
+        "check": "illustrative_mean_loss",
+        "observed": "0.01",
+        "expected": "0.01",
+        "recorded_observed": "0.01",
+        "passed": true
+      },
+      {
+        "check": "illustrative_variational_tail_loss",
+        "observed": "0.04",
+        "expected": "0.04",
+        "recorded_observed": "0.04",
+        "passed": true
+      },
+      {
+        "check": "risk_penalty_sign_initial",
+        "observed": "-0.010",
+        "expected": "-0.01",
+        "recorded_observed": "-0.010",
+        "passed": true
+      },
+      {
+        "check": "risk_penalty_sign_lower_tail",
+        "observed": "0.000",
+        "expected": "0",
+        "recorded_observed": "0.000",
+        "passed": true
+      }
+    ],
+    "scientific_status": "NOT_EVALUATED",
+    "protocol_status": "PROPOSED_NOT_FROZEN",
+    "parameters_adopted": false
+  },
+  "failure_controls": [
+    {
+      "check": "wrong_expected_value",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "passed": true
+    },
+    {
+      "check": "wrong_recorded_observed_value",
+      "expected_exit": 1,
+      "observed_exit": 1,
+      "passed": true
+    },
+    {
+      "check": "missing_check",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "passed": true
+    },
+    {
+      "check": "duplicate_check",
+      "expected_exit": 2,
+      "observed_exit": 2,
+      "passed": true
+    }
+  ],
+  "outside_repository_working_directory_replay": {
+    "passed": 15,
+    "failed": 0,
+    "exit_code": 0
+  },
+  "sha256": {
+    "research/verification/economic_spec_20261011/check_arithmetic.py": "a51e910716b3bf6c2a269ca52c606a97fb1b463adf4fcfc744e345b86c50a295",
+    "research/verification/economic_spec_20261011/README.md": "a31f8319c8cdcdd87784f9ac5627ef20e47c9dc282d57f9d4650fa75de18b258",
+    "research/verification/economic_spec_20261011/arithmetic.json": "e1b720e7ebd2899b1b78d5b6775d0620776b86f3c8ea1c46e47b8e8f8412cfee",
+    "research/verification/economic_spec_20261011/documentation_receipt.json": "eb1e48b18c5514cde844ffc679022622ea83be498b4a10a3c357fed8613c03c0",
+    "research/ECONOMIC_SPEC_PROPOSED_20261011.md": "0477694f48156dfb3a67e9a3c1a53b2a4ea9b3a35c5d49b7b830d30baa439f99"
+  },
+  "inherited_leaf_count": 28,
+  "unchanged_inherited_leaves": {
+    ".github/workflows/research-baselines.yml": {
+      "mode": "100644",
+      "sha": "b1d2d6d4cacbef22c82f7166440ad4f347447e1d"
+    },
+    "LICENSE": {
+      "mode": "100644",
+      "sha": "dcfeeb6b48cae18729b1585f4f70a5f0e834d1c4"
+    },
+    "README.md": {
+      "mode": "100644",
+      "sha": "ef8a4b5a018607e06261ee3994fc86a13e59dd1f"
+    },
+    "RESEARCH_STATE.json": {
+      "mode": "100644",
+      "sha": "77b26ebaab52db65612a6afb168096bdd1481627"
+    },
+    "frem/__init__.py": {
+      "mode": "100644",
+      "sha": "4a96c02b03c9acd11fbe9d7d42ff7c675fd1ab81"
+    },
+    "frem/benchmark.py": {
+      "mode": "100644",
+      "sha": "3f4b8a73759fb61509b0d9556c618ec07d416140"
+    },
+    "frem/component_audit.py": {
+      "mode": "100644",
+      "sha": "b660c53a5dd1ca3fe481baa468430bf6f1884694"
+    },
+    "pyproject.toml": {
+      "mode": "100644",
+      "sha": "516df7667908a99bdd50ff9fdf7a2b1819ad7960"
+    },
+    "research/COMPONENT_RNG_ISOLATION_20261010.md": {
+      "mode": "100644",
+      "sha": "b2ac305771d875468354ed015223b80979c8e042"
+    },
+    "research/ECONOMIC_SPEC_PROPOSED_20261011.md": {
+      "mode": "100644",
+      "sha": "217f4c8fe6b015388ba8244145825fa63b75d530"
+    },
+    "research/INTEGRATION_REVIEW_20261011.md": {
+      "mode": "100644",
+      "sha": "9457e7224cbf4121d47373ed471ea86c50822c45"
+    },
+    "research/PROTOCOL_DRAFT_20261010.md": {
+      "mode": "100644",
+      "sha": "04c0f22b17a51b00d152d6188d9ae321a7007287"
+    },
+    "research/verification/csv_admission_20261010/frem_all_candidate.json": {
+      "mode": "100644",
+      "sha": "6ca5fe3f66c8da0fc334967140c47ef90776322c"
+    },
+    "research/verification/csv_admission_20261010/frem_all_candidate.log": {
+      "mode": "100644",
+      "sha": "12b0386e4dbf287f40a7240623dad56a993e5be1"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_baseline.json": {
+      "mode": "100644",
+      "sha": "917555ad4eaee044b8a1bcdf9cd56b59fd503daa"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_baseline.log": {
+      "mode": "100644",
+      "sha": "017a5e507c5921baed649eb2559294825f16c50e"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_candidate.json": {
+      "mode": "100644",
+      "sha": "8cb7a25bdf4621f44f9b92f6188808b358729122"
+    },
+    "research/verification/csv_admission_20261010/frem_csv_candidate.log": {
+      "mode": "100644",
+      "sha": "5e5ac78051c9f1e7f6737a081fc83d86ad44b288"
+    },
+    "research/verification/csv_admission_20261010/verification.json": {
+      "mode": "100644",
+      "sha": "3b73d0a678fe6e1fcb56edc5f5ae294184096849"
+    },
+    "research/verification/economic_spec_20261011/arithmetic.json": {
+      "mode": "100644",
+      "sha": "e83f74827839069150719f472f95b3963a2f3720"
+    },
+    "research/verification/economic_spec_20261011/documentation_receipt.json": {
+      "mode": "100644",
+      "sha": "e097c58ec8098da63327a6d72e81820e80df361e"
+    },
+    "research/verification/integration_20261011/pytest_cpu.log": {
+      "mode": "100644",
+      "sha": "1035e1b3249a6dde2ece466be520f56c1f8ceaf6"
+    },
+    "research/verification/integration_20261011/pytest_without_torch.log": {
+      "mode": "100644",
+      "sha": "a3059516cf83b4baa43879d29b713c28a5fbff13"
+    },
+    "research/verification/integration_20261011/verification.json": {
+      "mode": "100644",
+      "sha": "900c7b51ed4913ac06a54b2174c298b490b229e6"
+    },
+    "tests/test_benchmark.py": {
+      "mode": "100644",
+      "sha": "740d4a66c432af46a8fdf55da970462611f754f2"
+    },
+    "tests/test_component_audit.py": {
+      "mode": "100644",
+      "sha": "ab0398af13a516dae021a8335e41d46cfb2829a8"
+    },
+    "tests/test_component_rng_isolation.py": {
+      "mode": "100644",
+      "sha": "f676624ab4ca9194ddb5159a316747e70c5a7ad2"
+    },
+    "tests/test_csv_admission.py": {
+      "mode": "100644",
+      "sha": "e7250589c2fd797ff5965cebcba2877fb3929951"
+    }
+  },
+  "scientific_status": "NOT_EVALUATED",
+  "protocol_status": "PROPOSED_NOT_FROZEN",
+  "hosted_ci": "Not run for this bounded documentation/arithmetic-only addition; preserve [skip ci]. Historical parent CI is separate evidence.",
+  "market_data_or_outcomes_read": false,
+  "training_or_models_run": false,
+  "portfolio_implementation_added": false,
+  "parameters_adopted": false,
+  "receipt_hash_scope": "This receipt excludes itself; the published Git tree binds the complete addition."
+}
