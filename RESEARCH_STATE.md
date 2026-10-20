@@ -51,3 +51,10 @@ Get a real point-in-time dataset and an actual train/validation/test manifest, i
 - Caveat: training retrieval can use prior labels only after their genuine *availability timestamps*; the current gap parameter is an approximation requiring proof that periods match the label horizon. The current code does not prove point-in-time compliance.
 - Caveat: backtesting uses fixed round-trip turnover assumption, not actual portfolio weight transitions or market impact; it is a toy evaluation convention, not a production strategy P&L.
 - Current disposition remains INCONCLUSIVE. No Kaggle execution or licensed financial dataset proof, no trained JEPA, no final arXiv-style PDF, no verified market alpha.
+
+## 2026-10-20: trainable predictive JEPA module
+- Added `predictive_jepa.py` and `test_predictive_jepa.py` to this development branch, with PyTorch as an explicit dependency.
+- A locally executed version of the JEPA module passed 3/3 tests: deterministic training, held-out input transformation, and invalid per-asset time detection. A combined local test command displayed 11 passes, but its wrapper subsequently timed out; do not treat that as a clean CI result.
+- This is feature-space next-observation predictive JEPA, not the final integrated stochastic engram-reservoir-JEPA-XGBoost predictor. Integration into the full forecaster and a clean repository test run are still outstanding.
+- Training future *features* are used only within the declared training split for self-supervision; the upstream dataset must prove feature point-in-time availability.
+- Real-market performance, Kaggle execution, transaction-cost-realistic portfolio statistics and custom arXiv.sty paper remain unverified/unavailable. Do not claim them.
