@@ -43,3 +43,11 @@ Primary null: memory does not improve preregistered net cross-sectional informat
 
 ## Next verified gate
 Get a real point-in-time dataset and an actual train/validation/test manifest, implement trained JEPA, and execute a reproducible walk-forward comparison. This branch is DEVELOPMENT, not a release or acceptance of scientific claims.
+
+## 2026-10-20 continuation: reservoir correction
+- Commit `22276155b8df0f3e89705dfd565d46f0e82f371b`: reservoir states are now maintained independently per asset; prediction begins from each asset's final training state instead of zero.
+- Commit `f09d0160b72e8c07c75226b804e1e817f93754d2`: add regression tests for continuity, interleaved assets, and rejection of prior timestamps.
+- GitHub commits are confirmed, but **these new regression tests were NOT run** here. Clean-checkout/CI verification remains mandatory. Do not include the new tests in reported passing totals until logs exist.
+- Caveat: training retrieval can use prior labels only after their genuine *availability timestamps*; the current gap parameter is an approximation requiring proof that periods match the label horizon. The current code does not prove point-in-time compliance.
+- Caveat: backtesting uses fixed round-trip turnover assumption, not actual portfolio weight transitions or market impact; it is a toy evaluation convention, not a production strategy P&L.
+- Current disposition remains INCONCLUSIVE. No Kaggle execution or licensed financial dataset proof, no trained JEPA, no final arXiv-style PDF, no verified market alpha.
