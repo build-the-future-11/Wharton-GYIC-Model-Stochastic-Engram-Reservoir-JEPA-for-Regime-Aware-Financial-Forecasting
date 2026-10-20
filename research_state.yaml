@@ -1,0 +1,22 @@
+project: Wharton GYIC Stochastic Engram Reservoir JEPA
+date: 2026-10-20
+phase: DEVELOPMENT
+classification: INCONCLUSIVE
+release: NOT_ARXIV_READY
+question: Does causal episodic memory improve out-of-sample net equity rankings over memory-off and XGBoost controls?
+primary_endpoint: Paired difference in daily cost-adjusted long-short returns
+protected_test: UNDEFINED_AND_UNTOUCHED
+dataset_provenance: UNVERIFIED
+gpu_jobs_verified: 0
+manuscript_style: arxiv.sty unavailable in inspected files
+implementation:
+  - PCA reservoir episodic memory XGBoost development baseline
+  - Separate trained feature-space predictive JEPA
+  - Preliminary cross-sectional metrics and paired bootstrap
+verified_local_package_tests: '11 passed in 4.40s, CPU; not a clean GitHub checkout'
+critical_gaps:
+  - No integrated JEPA reservoir engram architecture yet
+  - No authentic Kaggle runs or point-in-time market data
+  - No availability-time labels, delisting controls or dynamic turnover costs
+  - No independent confirmatory protocol or full arxiv paper
+historical_negative_report: 'User previously reported synthetic engram degradation; raw logs unavailable, NOT independently verified.'
