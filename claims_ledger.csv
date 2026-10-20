@@ -1,0 +1,6 @@
+claim_id,claim,verification,experiment_id,artifact,disposition
+C001,Uploaded package tests pass,LOCAL_VERIFIED,LOCALPKG-20261020-01,test_run.log,SUPPORTED
+C002,Integrated JEPA plus engram improves financial returns,NO_REAL_MARKET_EVIDENCE,NONE,NONE,UNSUPPORTED
+C003,Real Kaggle GPU benchmarks run,NO_AUTHENTIC_GPU_LOG,NONE,NONE,UNSUPPORTED
+C004,arxiv.sty manuscript compiled,NO_STYLE_OR_COMPILE_LOG,NONE,NONE,UNSUPPORTED
+C005,Standalone JEPA learns synthetic next-observation features,LOCAL_SMOKE_TEST_ONLY,LOCALPKG-20261020-01,test_predictive_jepa.py,LIMITED
